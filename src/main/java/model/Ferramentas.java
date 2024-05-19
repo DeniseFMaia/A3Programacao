@@ -2,14 +2,15 @@ package model;
 
 import dao.FerramentasDAO;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Ferramentas {
 
     // Atributos
-    public int id;
-    public String nome;
-    public String marca;
-    public Double custo;
+    private int id;
+    private String nome;
+    private String marca;
+    private Double custo;
 
     // Construtor Default
     public Ferramentas() {
@@ -40,6 +41,9 @@ public class Ferramentas {
     public Double getCusto() {
         return this.custo;
     }
+    public String getNomeById (int id) {
+      return carregaFerramentas(id).getNome();        
+    } 
 
     // Setters
     private void setId(int id) {
@@ -73,7 +77,7 @@ public class Ferramentas {
     }
 
     // Cadastra novo amigo
-    public boolean insertFerramentasBD(String nome, String telefone, String email) {
+    public boolean insertFerramentasBD(String nome, String marca, Double custo) {
         int id = this.maiorID() + 1;
         Ferramentas objeto = new Ferramentas(id, nome, marca, custo);
         FerramentasDAO.minhaLista.add(objeto);
@@ -111,7 +115,7 @@ public class Ferramentas {
         int indice = this.procuraIndice(id);
         return FerramentasDAO.minhaLista.get(indice);
     }
-
+    
     // retorna o maior ID da nossa base de dados
     public int maiorID() {
         return FerramentasDAO.maiorID();
@@ -121,4 +125,39 @@ public class Ferramentas {
         throw new UnsupportedOperationException("Not supported yet.");
 // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+	public void leitura(){
+            String nome = JOptionPane.showInputDialog("Nome:");
+            String marca = JOptionPane.showInputDialog("Marca:") ;
+            Double custo = Double.parseDouble(JOptionPane.showInputDialog("Custo:"));
+            insertFerramentasBD(nome, marca, custo);
+	
+        }    
+    
+	public void imprimir(){
+		JOptionPane.showMessageDialog(null, paraString());
+	}
+	
+        
+	public String paraString(){
+            
+		//return (super.paraString() +
+	//			"\nTipo de Comida: " + getTipoComida() +
+	//			"\nPreco Medio: " + getPrecoMedio());
+	   String retorno = "";
+            ArrayList<Ferramentas> ferramentas = getMinhaLista();
+           for (int i = 0; i < ferramentas.size(); i++) {
+               if (i > 0) retorno += "\n";
+               
+             retorno += ferramentas.get(i).toString();
+                     
+               
+           }
+           // if (minhaLista.get(i).getId() > maiorID) {
+           //     maiorID = minhaLista.get(i).getId();
+           // }
+          return retorno;
+        }
+    
+    
 }

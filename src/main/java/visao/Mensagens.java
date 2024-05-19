@@ -1,6 +1,8 @@
 package visao;
 
+public class Mensagens extends Exception {
 
-public class Mensagens {
-    
+    Mensagens(String msg) {
+        super(msg);
+    }
 }

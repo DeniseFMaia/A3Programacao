@@ -2,6 +2,7 @@ package model;
 
 import dao.AmigoDAO;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Amigo {
 
@@ -58,6 +59,7 @@ public class Amigo {
         this.email = email;
     }
 
+    
     @Override
     public String toString() {
         return "id=" + id + ", nome="
@@ -71,6 +73,10 @@ public class Amigo {
         return AmigoDAO.getMinhaLista();
     }
 
+    public String getNomeById (int id) {
+      return carregaAmigos(id).getNome();        
+    } 
+    
     // Cadastra novo amigo
     public boolean insertAmigoBD(String nome, String telefone, String email) {
         int id = this.maiorID() + 1;
@@ -106,7 +112,7 @@ public class Amigo {
     }
 
     // carrega dados de um aluno especÍfico pelo seu ID
-    public Amigo carregaAluno(int id) {
+    public Amigo carregaAmigos(int id) {
         int indice = this.procuraIndice(id);
         return AmigoDAO.minhaLista.get(indice);
     }
@@ -116,8 +122,42 @@ public class Amigo {
         return AmigoDAO.maiorID();
     }
 
-    public boolean InsertAlunoBD(int id, String nome, String telefone, String email) {
+    public boolean InsertAmigoBD(int id, String nome, String telefone, String email) {
         throw new UnsupportedOperationException("Not supported yet.");
 // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+	public void leitura(){
+            String nome = JOptionPane.showInputDialog("Nome:");
+            String telefone = JOptionPane.showInputDialog("Telefone:") ;
+            String email = JOptionPane.showInputDialog("Email:");
+            insertAmigoBD(nome, telefone, email);
+	}    
+    
+	public void imprimir(){
+		JOptionPane.showMessageDialog(null, paraString());
+	}
+	
+        
+	public String paraString(){
+            
+		//return (super.paraString() +
+	//			"\nTipo de Comida: " + getTipoComida() +
+	//			"\nPreco Medio: " + getPrecoMedio());
+	   String retorno = "";
+            ArrayList<Amigo> amigos = getMinhaLista();
+           for (int i = 0; i < amigos.size(); i++) {
+               if (i > 0) retorno += "\n";
+               
+             retorno += amigos.get(i).toString();
+                     
+               
+           }
+           // if (minhaLista.get(i).getId() > maiorID) {
+           //     maiorID = minhaLista.get(i).getId();
+           // }
+          return retorno;
+        }
+        
+    
 }
