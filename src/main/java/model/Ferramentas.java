@@ -141,9 +141,8 @@ public class Ferramentas {
         
 	public String paraString(){
             
-		//return (super.paraString() +
-	//			"\nTipo de Comida: " + getTipoComida() +
-	//			"\nPreco Medio: " + getPrecoMedio());
+		//return (super.paraString()
+               		
 	   String retorno = "";
             ArrayList<Ferramentas> ferramentas = getMinhaLista();
            for (int i = 0; i < ferramentas.size(); i++) {

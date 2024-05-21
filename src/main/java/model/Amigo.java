@@ -142,8 +142,7 @@ public class Amigo {
 	public String paraString(){
             
 		//return (super.paraString() +
-	//			"\nTipo de Comida: " + getTipoComida() +
-	//			"\nPreco Medio: " + getPrecoMedio());
+	//			
 	   String retorno = "";
             ArrayList<Amigo> amigos = getMinhaLista();
            for (int i = 0; i < amigos.size(); i++) {

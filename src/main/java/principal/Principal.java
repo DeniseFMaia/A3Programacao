@@ -11,11 +11,12 @@ public class Principal {
 
     public static void main(String[] args) throws ParseException {
 // Instancia a interface gráfica
-        //FrmMenuPrincipal objetotela = new FrmMenuPrincipal();
+        FrmMenuPrincipal objetotela = new FrmMenuPrincipal();
 // Torna a janela visível
-        //objetotela.setVisible(true);
+        objetotela.setVisible(true);
+
         
-                Amigo amigo = new Amigo();
+              /*  Amigo amigo = new Amigo();
                 Ferramentas ferramenta = new Ferramentas();
                 Emprestimo emprestimo = new Emprestimo();
                 
@@ -59,8 +60,7 @@ public class Principal {
 					break;
 			}				
 		}        
-        
-        
+        */
         
     }
 }

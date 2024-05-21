@@ -24,7 +24,7 @@ public class Emprestimo {
         this(0, 0, 0, null, null, null, "");
     }
 
-    // Construtor Default
+    // Construtor
     public Emprestimo(int id, int idferramenta, int idamigo, Date dataemprestimo, Date dataprevdevolucao, Date datadevolucao, String status) {
         this.id = id;
         this.idferramenta = idferramenta;
