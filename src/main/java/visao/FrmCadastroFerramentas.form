@@ -54,7 +54,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="57" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -77,7 +77,7 @@
               <Component id="jLcustoAquisição" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="JTFcustoAquisição" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="b_gerenciarFerramenta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="b_registrarFerramenta" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -93,7 +93,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLnomeFerramenta">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nome da Ferramenta:"/>
+        <Property name="text" type="java.lang.String" value="Ferramenta:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="JTFnomeFerramenta">

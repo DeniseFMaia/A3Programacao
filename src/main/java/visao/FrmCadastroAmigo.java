@@ -1,6 +1,9 @@
 
 package visao;
 
+import javax.swing.JOptionPane;
+import model.Amigo;
+
 /**
  *
  * @author 10724112695
@@ -10,8 +13,11 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     /**
      * Creates new form FrmCadastroAmigo
      */
+
+    private Amigo objetoamigo; // cria o vínculo com o Aluno
     public FrmCadastroAmigo() {
         initComponents();
+        this.objetoamigo = new Amigo(); // carrega objeto vazio de amigo
     }
 
     /**
@@ -27,19 +33,20 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         jLtelefone = new javax.swing.JLabel();
         JTFnome = new javax.swing.JTextField();
         JTFtelefone = new javax.swing.JTextField();
-        b_registrar = new javax.swing.JButton();
-        b_editar = new javax.swing.JButton();
-        b_excluir = new javax.swing.JButton();
+        b_cadastrar = new javax.swing.JButton();
+        b_gerenciar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLemail = new javax.swing.JLabel();
+        jTFEmail = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLnome.setText("Insira seu Nome:");
+        jLnome.setText("Nome:");
 
-        jLtelefone.setText("Insira seu Telefone:");
+        jLtelefone.setText("Telefone:");
 
         JTFnome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,16 +54,19 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
             }
         });
 
-        b_registrar.setText("Registrar");
-
-        b_editar.setText("Editar");
-        b_editar.addActionListener(new java.awt.event.ActionListener() {
+        b_cadastrar.setText("Cadastrar");
+        b_cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_editarActionPerformed(evt);
+                b_cadastrarActionPerformed(evt);
             }
         });
 
-        b_excluir.setText("Excluir");
+        b_gerenciar.setText("Gerenciar");
+        b_gerenciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_gerenciarActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(54, 144, 255));
 
@@ -77,7 +87,7 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(jLabel1))
                     .addComponent(jLabel2))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,55 +102,59 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setText("Cadastro Amigo");
 
+        jLemail.setText("Email");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLtelefone)
-                            .addComponent(jLnome)
-                            .addComponent(JTFtelefone)
-                            .addComponent(JTFnome, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(100, 100, 100))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(b_registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
-                                .addComponent(b_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(b_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(56, 56, 56))
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(JTFnome, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                                    .addComponent(jLnome)
+                                    .addComponent(jLtelefone)
+                                    .addComponent(JTFtelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                                    .addComponent(jLemail, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(66, 66, 66))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(b_cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(b_gerenciar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(51, 51, 51))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLnome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTFnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
+                .addGap(18, 18, 18)
                 .addComponent(jLtelefone)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTFtelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(b_editar, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(b_registrar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addComponent(b_excluir)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addComponent(jLemail)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_cadastrar)
+                    .addComponent(b_gerenciar))
+                .addGap(65, 65, 65))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -151,9 +165,53 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFnomeActionPerformed
 
-    private void b_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_editarActionPerformed
+    private void b_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cadastrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_b_editarActionPerformed
+
+        try {
+// recebendo e validando dados da interface gráfica.
+            String nome = "";
+           String telefone = "";
+            String email = "";
+            if (this.JTFnome.getText().length() < 2) {
+                throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
+            } else {
+                nome = this.JTFnome.getText();
+            }
+            if (this.JTFtelefone.getText().length() < 8) {
+                throw new Mensagens("Telefone deve conter ao menos 8 caracteres.");
+            } else {
+                telefone = this.JTFtelefone.getText();
+            }
+
+            if (this.jTFEmail.getText().length() < 2) {
+                throw new Mensagens("E-mail deve conter ao menos 2 caracteres.");
+            } else {
+                email = this.jTFEmail.getText();
+            }
+
+            if (this.objetoamigo.insertAmigoBD(nome, telefone, email)) {
+                JOptionPane.showMessageDialog(rootPane, "Amigo Cadastrado com Sucesso!");
+// limpa campos da interface
+                this.JTFnome.setText("");
+                this.JTFtelefone.setText("");
+                this.jTFEmail.setText("");
+            }
+            
+            System.out.println(this.objetoamigo.getMinhaLista().toString());
+        } catch (Mensagens erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } catch (NumberFormatException erro2) {
+            JOptionPane.showMessageDialog(null, "Informe um número válido.");
+        }// TODO add your handling code here:        
+        
+    }//GEN-LAST:event_b_cadastrarActionPerformed
+
+    private void b_gerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_gerenciarActionPerformed
+        // TODO add your handling code here:
+        FrmGerenciarAmigo objeto = new FrmGerenciarAmigo();
+        objeto.setVisible(true);
+    }//GEN-LAST:event_b_gerenciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,14 +251,15 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTFnome;
     private javax.swing.JTextField JTFtelefone;
-    private javax.swing.JButton b_editar;
-    private javax.swing.JButton b_excluir;
-    private javax.swing.JButton b_registrar;
+    private javax.swing.JButton b_cadastrar;
+    private javax.swing.JButton b_gerenciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLemail;
     private javax.swing.JLabel jLnome;
     private javax.swing.JLabel jLtelefone;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTFEmail;
     // End of variables declaration//GEN-END:variables
 }

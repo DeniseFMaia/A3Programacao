@@ -39,6 +39,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         b_relatorio = new javax.swing.JButton();
         b_emprestimos = new javax.swing.JButton();
         b_cadastroFerramenta = new javax.swing.JButton();
+        jBSair = new javax.swing.JButton();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -70,7 +71,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,6 +87,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jLabel4.setText("O Que Deseja Fazer?");
 
         b_cadastroAmigo.setText("Cadastrar Amigo");
+        b_cadastroAmigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_cadastroAmigoActionPerformed(evt);
+            }
+        });
 
         b_evento.setText("Eventos");
         b_evento.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +106,13 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 
         b_cadastroFerramenta.setText("Cadastrar Ferramenta");
 
+        jBSair.setText("Sair");
+        jBSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSairActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -107,10 +120,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addGap(34, 34, 34))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -124,7 +133,16 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
                                     .addComponent(b_emprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(b_cadastroAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(b_cadastroFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(11, 11, 11))))
+                        .addGap(11, 11, 11))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(34, 34, 34))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(103, 103, 103))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +160,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_evento)
                     .addComponent(b_relatorio))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jBSair)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,6 +182,19 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private void b_eventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_eventoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_b_eventoActionPerformed
+
+    private void b_cadastroAmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cadastroAmigoActionPerformed
+        // TODO add your handling code here:
+        FrmCadastroAmigo amigo = new FrmCadastroAmigo();
+        amigo.setVisible(true);
+    }//GEN-LAST:event_b_cadastroAmigoActionPerformed
+
+    private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
+      System.exit(0);
+      
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_jBSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,6 +237,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton b_emprestimos;
     private javax.swing.JButton b_evento;
     private javax.swing.JButton b_relatorio;
+    private javax.swing.JButton jBSair;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
