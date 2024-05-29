@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package visao;
+import model.Ferramentas;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,8 +16,10 @@ public class FrmCadastroFerramentas extends javax.swing.JFrame {
     /**
      * Creates new form FrmCadastroFerramentas
      */
+    private Ferramentas objetoferramenta;
     public FrmCadastroFerramentas() {
         initComponents();
+        this.objetoferramenta = new Ferramentas();
     }
 
     /**
@@ -31,9 +36,8 @@ public class FrmCadastroFerramentas extends javax.swing.JFrame {
         jLmarca = new javax.swing.JLabel();
         JTFmarca = new javax.swing.JTextField();
         jLcustoAquisição = new javax.swing.JLabel();
-        JTFcustoAquisição = new javax.swing.JTextField();
+        JTFcusto = new javax.swing.JTextField();
         b_registrarFerramenta = new javax.swing.JButton();
-        b_excluir = new javax.swing.JButton();
         b_gerenciarFerramenta = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -54,11 +58,19 @@ public class FrmCadastroFerramentas extends javax.swing.JFrame {
 
         jLcustoAquisição.setText("Custo de Aquisição:");
 
-        b_registrarFerramenta.setText("Registrar Ferramenta");
-
-        b_excluir.setText("Excluir");
+        b_registrarFerramenta.setText("Cadastrar Ferramenta");
+        b_registrarFerramenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_registrarFerramentaActionPerformed(evt);
+            }
+        });
 
         b_gerenciarFerramenta.setText("Gerenciar Ferramenta");
+        b_gerenciarFerramenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_gerenciarFerramentaActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(54, 144, 255));
 
@@ -90,7 +102,7 @@ public class FrmCadastroFerramentas extends javax.swing.JFrame {
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setText("Cadastro Ferramente");
+        jLabel3.setText("Cadastro Ferramenta");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,29 +111,27 @@ public class FrmCadastroFerramentas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JTFnomeFerramenta)
+                            .addComponent(jLmarca)
+                            .addComponent(jLnomeFerramenta)
+                            .addComponent(jLcustoAquisição)
+                            .addComponent(JTFmarca)
+                            .addComponent(JTFcusto, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 168, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(b_registrarFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(b_excluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(b_gerenciarFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(113, 113, 113)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(JTFnomeFerramenta)
-                                    .addComponent(jLmarca)
-                                    .addComponent(jLnomeFerramenta)
-                                    .addComponent(jLcustoAquisição)
-                                    .addComponent(JTFmarca)
-                                    .addComponent(JTFcustoAquisição, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 57, Short.MAX_VALUE))))
+                                .addGap(18, 18, 18)
+                                .addComponent(b_gerenciarFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,14 +149,12 @@ public class FrmCadastroFerramentas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLcustoAquisição)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTFcustoAquisição, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTFcusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_gerenciarFerramenta)
                     .addComponent(b_registrarFerramenta))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(b_excluir)
-                .addGap(30, 30, 30))
+                .addGap(65, 65, 65))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -156,6 +164,50 @@ public class FrmCadastroFerramentas extends javax.swing.JFrame {
     private void JTFnomeFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFnomeFerramentaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFnomeFerramentaActionPerformed
+
+    private void b_registrarFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_registrarFerramentaActionPerformed
+        // TODO add your handling code here:
+        try {
+// recebendo e validando dados da interface gráfica.
+            String nome = "";
+            String marca = "";
+            double custo = 0.0;
+            if (this.JTFnomeFerramenta.getText().length() < 2) {
+                throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
+            } else {
+                nome = this.JTFnomeFerramenta.getText();
+            }
+            if (this.JTFmarca.getText().length() <= 0) {
+                throw new Mensagens("Ferramenta deve conter ao menos 2 caracteres.");
+            } else {
+                marca = this.JTFmarca.getText();
+            }
+            if (this.JTFcusto.getText().length() < 2) {
+                throw new Mensagens("Custo deve conter um valor maior que 0.");
+            } else {
+                custo = Double.parseDouble(this.JTFcusto.getText());
+            }
+if (this.objetoferramenta.insertFerramentasBD(nome, marca, custo)) {
+                JOptionPane.showMessageDialog(rootPane, "Ferramenta Cadastrada com Sucesso!");
+// limpa campos da interface
+                this.JTFnomeFerramenta.setText("");
+                this.JTFmarca.setText("");
+                this.JTFcusto.setText("");
+            }
+//Exibieno console o aluno cadastrado
+            System.out.println(this.objetoferramenta.getMinhaLista().toString());
+        } catch (Mensagens erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } catch (NumberFormatException erro2) {
+            JOptionPane.showMessageDialog(null, "Informe um número válido.");
+        }
+    }//GEN-LAST:event_b_registrarFerramentaActionPerformed
+
+    private void b_gerenciarFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_gerenciarFerramentaActionPerformed
+        // TODO add your handling code here:
+         FrmGerenciarFerramenta objeto = new FrmGerenciarFerramenta();
+        objeto.setVisible(true);
+    }//GEN-LAST:event_b_gerenciarFerramentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,10 +245,9 @@ public class FrmCadastroFerramentas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField JTFcustoAquisição;
+    private javax.swing.JTextField JTFcusto;
     private javax.swing.JTextField JTFmarca;
     private javax.swing.JTextField JTFnomeFerramenta;
-    private javax.swing.JButton b_excluir;
     private javax.swing.JButton b_gerenciarFerramenta;
     private javax.swing.JButton b_registrarFerramenta;
     private javax.swing.JLabel jLabel1;

@@ -105,6 +105,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         b_emprestimos.setText("Empréstimos");
 
         b_cadastroFerramenta.setText("Cadastrar Ferramenta");
+        b_cadastroFerramenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_cadastroFerramentaActionPerformed(evt);
+            }
+        });
 
         jBSair.setText("Sair");
         jBSair.addActionListener(new java.awt.event.ActionListener() {
@@ -195,6 +200,14 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         
 // TODO add your handling code here:
     }//GEN-LAST:event_jBSairActionPerformed
+
+    private void b_cadastroFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cadastroFerramentaActionPerformed
+
+        // TODO add your handling code here:
+        FrmCadastroFerramentas amigo = new FrmCadastroFerramentas();
+        amigo.setVisible(true);
+         
+    }//GEN-LAST:event_b_cadastroFerramentaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -112,6 +112,11 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         });
 
         jBApagar.setText("Apagar");
+        jBApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBApagarActionPerformed(evt);
+            }
+        });
 
         jLNome.setText("Nome:");
 
@@ -206,7 +211,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
             String email = "";
             if (this.jTAmigos.getSelectedRow() == -1) {
                 throw new Mensagens("Primeiro selecione um amigo para alterar");
-                
+
             } else {
                 id = Integer.parseInt(this.jTAmigos.getValueAt(this.jTAmigos.getSelectedRow(), 0).toString());
             }
@@ -227,7 +232,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
             } else {
                 email = this.jTFEmail.getText();
             }
-            
+
             if (this.objetoamigo.updateAmigoBD(id, nome, telefone, email)) {
                 JOptionPane.showMessageDialog(rootPane, "Amigo atualizado com Sucesso!");
 // limpa campos da interface
@@ -266,6 +271,45 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
             this.jTFEmail.setText(email);
         }
     }//GEN-LAST:event_jTAmigosMouseClicked
+
+    private void jBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBApagarActionPerformed
+        try {
+// validando dados da interface gráfica.
+            int id = 0;
+            if (this.jTAmigos.getSelectedRow() == -1) {
+                throw new Mensagens("Primeiro Selecione um amigo para APAGAR");
+            } else {
+                id = Integer.parseInt(this.jTAmigos.
+                        getValueAt(this.jTAmigos.getSelectedRow(), 0).
+                        toString());
+            }
+// retorna 0 -> primeiro botão | 1 -> segundo botão | 2 -> terceiro botão
+            int respostaUsuario = JOptionPane.
+                    showConfirmDialog(null,
+                            "Tem certeza que deseja apagar este Amigo ?");
+            if (respostaUsuario == 0) {// clicou em SIM
+// envia os dados para o Aluno processar
+                if (this.objetoamigo.deleteAmigoBD(id)) {
+// limpa os campos
+                    this.jTFNome.setText("");
+                    this.jTFTelefone.setText("");
+                    this.jTFEmail.setText("");
+                   
+                    JOptionPane.showMessageDialog(rootPane,
+                            "Amigo Apagado com Sucesso!");
+                }
+            }
+// atualiza a tabela.
+            System.out.println(this.objetoamigo.getMinhaLista().toString());
+        } catch (Mensagens erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } finally {
+// atualiza a tabela.
+            carregaTabela();
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBApagarActionPerformed
 
     /**
      * @param args the command line arguments

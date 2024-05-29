@@ -1,8 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package visao;
+import model.Ferramentas;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -13,9 +14,30 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     /**
      * Creates new form FrmGerenciarFerramenta
      */
+    private Ferramentas objetoferramenta;
+    
     public FrmGerenciarFerramenta() {
         initComponents();
+        this.objetoferramenta = new Ferramentas(); // carrega objetoaluno de aluno
+        this.carregaTabela();
+
     }
+
+    public void carregaTabela() {
+        DefaultTableModel modelo = (DefaultTableModel) this.jTFerramentas.getModel();
+        modelo.setNumRows(0); //Posiciona na primeira linha da tabela
+//Carrega a lista de objetos aluno
+        ArrayList<Ferramentas> minhalista = objetoferramenta.getMinhaLista();
+        for (Ferramentas a : minhalista) {
+            modelo.addRow(new Object[]{
+                a.getId(),
+                a.getNome(),
+                a.getMarca(),
+                a.getCusto()
+            });
+        }
+    } 
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,6 +63,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         JLgerenciamentoferramenta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gerenciamento Ferramenta");
 
         jPanel1.setBackground(new java.awt.Color(54, 144, 255));
 
@@ -78,10 +101,20 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTFerramentas);
 
         b_cancelar.setText("Cancelar");
+        b_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_cancelarActionPerformed(evt);
+            }
+        });
 
         b_alterar.setText("Alterar");
 
         b_apagar.setText("Apagar");
+        b_apagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_apagarActionPerformed(evt);
+            }
+        });
 
         JLferramenta.setText("Ferramenta:");
 
@@ -172,6 +205,50 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     private void JTFferramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFferramentaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFferramentaActionPerformed
+
+    private void b_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cancelarActionPerformed
+this.dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_b_cancelarActionPerformed
+
+    private void b_apagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_apagarActionPerformed
+        // TODO add your handling code here:
+        try {
+// validando dados da interface gráfica.
+            int id = 0;
+            if (this.jTFerramentas.getSelectedRow() == -1) {
+                throw new Mensagens("Primeiro Selecione uma ferramenta para APAGAR");
+            } else {
+                id = Integer.parseInt(this.jTFerramentas.
+                        getValueAt(this.jTFerramentas.getSelectedRow(), 0).
+                        toString());
+            }
+// retorna 0 -> primeiro botão | 1 -> segundo botão | 2 -> terceiro botão
+            int respostaUsuario = JOptionPane.
+                    showConfirmDialog(null,
+                            "Tem certeza que deseja apagar esta ferramenta ?");
+            if (respostaUsuario == 0) {// clicou em SIM
+// envia os dados para o Aluno processar
+                if (this.objetoferramenta.deleteFerramentasBD(id)) {
+// limpa os campos
+                    this.JTFferramenta.setText("");
+                    this.JTFmarca.setText("");
+                    this.JTFcusto.setText("");
+                   
+                    JOptionPane.showMessageDialog(rootPane,
+                            "Ferramenta Apagada com Sucesso!");
+                }
+            }
+// atualiza a tabela.
+            System.out.println(this.objetoferramenta.getMinhaLista().toString());
+        } catch (Mensagens erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } finally {
+// atualiza a tabela.
+            carregaTabela();
+        }
+
+    }//GEN-LAST:event_b_apagarActionPerformed
 
     /**
      * @param args the command line arguments
