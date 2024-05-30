@@ -98,6 +98,11 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTFerramentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTFerramentasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTFerramentas);
 
         b_cancelar.setText("Cancelar");
@@ -108,6 +113,11 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         });
 
         b_alterar.setText("Alterar");
+        b_alterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_alterarActionPerformed(evt);
+            }
+        });
 
         b_apagar.setText("Apagar");
         b_apagar.addActionListener(new java.awt.event.ActionListener() {
@@ -163,9 +173,9 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(JLgerenciamentoferramenta)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLferramenta)
                     .addComponent(JTFferramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -249,6 +259,71 @@ this.dispose();
         }
 
     }//GEN-LAST:event_b_apagarActionPerformed
+
+    private void b_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_alterarActionPerformed
+        // TODO add your handling code here:
+        try {
+            int id = 0;
+            String ferramenta = "";
+            String marca = "";
+            Double custo = 0.0;
+            if (this.jTFerramentas.getSelectedRow() == -1) {
+                throw new Mensagens("Primeiro selecione uma ferramenta para alterar");
+
+            } else {
+                id = Integer.parseInt(this.jTFerramentas.getValueAt(this.jTFerramentas.getSelectedRow(), 0).toString());
+            }
+
+            if (this.JTFferramenta.getText().length() < 2) {
+                throw new Mensagens("Ferramenta deve conter ao menos 2 caracteres.");
+            } else {
+                ferramenta = this.JTFferramenta.getText();
+            }
+            if (this.JTFmarca.getText().length() < 2) {
+                throw new Mensagens("Marca deve conter ao menos 2 caracteres.");
+            } else {
+                marca = this.JTFmarca.getText();
+            }
+
+            if (this.JTFcusto.getText().length() < 0) {
+                throw new Mensagens("Custo deve ser maior que 0.");
+            } else {
+                custo = Double.parseDouble(this.JTFcusto.getText());
+            }
+
+            if (this.objetoferramenta.updateFerramentasBD(id, ferramenta, marca, custo)) {
+                JOptionPane.showMessageDialog(rootPane, "Ferramenta atualizada com Sucesso!");
+// limpa campos da interface
+                this.JTFferramenta.setText("");
+                this.JTFmarca.setText("");
+                this.JTFcusto.setText("");
+            }
+
+            System.out.println(this.objetoferramenta.getMinhaLista().toString());
+        } catch (Mensagens erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } catch (NumberFormatException erro2) {
+            JOptionPane.showMessageDialog(null, "Informe um valor válido.");
+        }// TODO add your handling code here:       
+        finally {
+            carregaTabela();
+        }
+
+    }//GEN-LAST:event_b_alterarActionPerformed
+
+    private void jTFerramentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTFerramentasMouseClicked
+        // TODO add your handling code here:
+        int row = this.jTFerramentas.getSelectedRow();
+        if (row != -1) {
+            String ferramenta = this.jTFerramentas.getValueAt(row, 1).toString();
+            String marca = this.jTFerramentas.getValueAt(row, 2).toString();
+            String custo = this.jTFerramentas.getValueAt(row, 3).toString();
+            this.JTFferramenta.setText(ferramenta);
+            this.JTFmarca.setText(marca);
+            this.JTFcusto.setText(custo);
+        }
+                                      
+    }//GEN-LAST:event_jTFerramentasMouseClicked
 
     /**
      * @param args the command line arguments

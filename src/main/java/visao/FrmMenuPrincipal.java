@@ -37,7 +37,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         b_cadastroAmigo = new javax.swing.JButton();
         b_evento = new javax.swing.JButton();
         b_relatorio = new javax.swing.JButton();
-        b_emprestimos = new javax.swing.JButton();
+        b_emprestimo = new javax.swing.JButton();
         b_cadastroFerramenta = new javax.swing.JButton();
         jBSair = new javax.swing.JButton();
 
@@ -102,7 +102,12 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 
         b_relatorio.setText("Relatórios");
 
-        b_emprestimos.setText("Empréstimos");
+        b_emprestimo.setText("Novo empréstimo");
+        b_emprestimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_emprestimoActionPerformed(evt);
+            }
+        });
 
         b_cadastroFerramenta.setText("Cadastrar Ferramenta");
         b_cadastroFerramenta.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +140,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(60, 60, 60)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(b_emprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(b_emprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(b_cadastroAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(b_cadastroFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(11, 11, 11))
@@ -156,7 +161,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
-                .addComponent(b_emprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(b_emprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(b_cadastroAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -204,10 +209,16 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private void b_cadastroFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cadastroFerramentaActionPerformed
 
         // TODO add your handling code here:
-        FrmCadastroFerramentas amigo = new FrmCadastroFerramentas();
-        amigo.setVisible(true);
+        FrmCadastroFerramentas ferramenta = new FrmCadastroFerramentas();
+        ferramenta.setVisible(true);
          
     }//GEN-LAST:event_b_cadastroFerramentaActionPerformed
+
+    private void b_emprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_emprestimoActionPerformed
+        // TODO add your handling code here:
+        FrmEmprestimo emprestimo = new FrmEmprestimo();
+       emprestimo.setVisible(true);
+    }//GEN-LAST:event_b_emprestimoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,7 +258,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_cadastroAmigo;
     private javax.swing.JButton b_cadastroFerramenta;
-    private javax.swing.JButton b_emprestimos;
+    private javax.swing.JButton b_emprestimo;
     private javax.swing.JButton b_evento;
     private javax.swing.JButton b_relatorio;
     private javax.swing.JButton jBSair;
