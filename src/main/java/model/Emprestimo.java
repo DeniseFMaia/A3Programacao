@@ -163,6 +163,20 @@ public class Emprestimo {
         }
     }
 
+    public void devolver(int idFerramenta) {
+        int idferramenta = idFerramenta;
+        ArrayList<Emprestimo> emprestimos = getMinhaLista();
+        for (int i = 0; i < emprestimos.size(); i++) {
+            Emprestimo emprestimo = emprestimos.get(i);
+            if (emprestimo.getIdFerramenta() == idferramenta && emprestimo.getStatus() == "Emprestado") {
+                emprestimo.setStatus("Devolvido");
+                emprestimo.setDataDevolucao(new Date());
+                break;
+            }
+        }
+    }
+    
+
     public void ferramentasEmprestadas(Ferramentas ferramentas, Amigo amigos) {
         String texto = "";
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

@@ -145,6 +145,11 @@ public class FrmEmprestimo extends javax.swing.JFrame {
         });
 
         jButton2.setText("Gerenciar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         JFDataEmprestimo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -379,6 +384,12 @@ public class FrmEmprestimo extends javax.swing.JFrame {
     private void jCFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCFerramentaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCFerramentaActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        FrmGerenciarEmprestimo objeto = new FrmGerenciarEmprestimo();
+        objeto.setVisible(true);        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

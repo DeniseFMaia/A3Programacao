@@ -40,6 +40,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         b_emprestimo = new javax.swing.JButton();
         b_cadastroFerramenta = new javax.swing.JButton();
         jBSair = new javax.swing.JButton();
+        b_gerenciaremprestimo = new javax.swing.JButton();
+        b_gerenciaramigos = new javax.swing.JButton();
+        b_gerenciarferramentas = new javax.swing.JButton();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -71,7 +74,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,7 +83,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -101,8 +104,13 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         });
 
         b_relatorio.setText("Relatórios");
+        b_relatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_relatorioActionPerformed(evt);
+            }
+        });
 
-        b_emprestimo.setText("Novo empréstimo");
+        b_emprestimo.setText("Cadastrar Empréstimo");
         b_emprestimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_emprestimoActionPerformed(evt);
@@ -123,67 +131,96 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        b_gerenciaremprestimo.setText("Gerenciar Emprestimos");
+        b_gerenciaremprestimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_gerenciaremprestimoActionPerformed(evt);
+            }
+        });
+
+        b_gerenciaramigos.setText("Gerenciar Amigos");
+        b_gerenciaramigos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_gerenciaramigosActionPerformed(evt);
+            }
+        });
+
+        b_gerenciarferramentas.setText("Gerenciar Ferramentas");
+        b_gerenciarferramentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_gerenciarferramentasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(b_evento, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(b_relatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(b_emprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(b_cadastroAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(b_cadastroFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(11, 11, 11))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(b_emprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(b_gerenciaremprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b_cadastroAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b_gerenciaramigos, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b_cadastroFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b_gerenciarferramentas, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(b_evento, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(34, 34, 34))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jBSair, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(103, 103, 103))))))
+                        .addComponent(b_relatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(41, 41, 41))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(33, 33, 33)
                 .addComponent(b_emprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(b_gerenciaremprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(b_cadastroAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(b_gerenciaramigos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(b_cadastroFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(5, 5, 5)
+                .addComponent(b_gerenciarferramentas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_evento)
                     .addComponent(b_relatorio))
                 .addGap(18, 18, 18)
                 .addComponent(jBSair)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(54, 54, 54))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -200,9 +237,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_b_cadastroAmigoActionPerformed
 
     private void jBSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSairActionPerformed
-      System.exit(0);
-      
-        
+        System.exit(0);
+
 // TODO add your handling code here:
     }//GEN-LAST:event_jBSairActionPerformed
 
@@ -211,14 +247,38 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrmCadastroFerramentas ferramenta = new FrmCadastroFerramentas();
         ferramenta.setVisible(true);
-         
+
     }//GEN-LAST:event_b_cadastroFerramentaActionPerformed
 
     private void b_emprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_emprestimoActionPerformed
         // TODO add your handling code here:
         FrmEmprestimo emprestimo = new FrmEmprestimo();
-       emprestimo.setVisible(true);
+        emprestimo.setVisible(true);
     }//GEN-LAST:event_b_emprestimoActionPerformed
+
+    private void b_gerenciaremprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_gerenciaremprestimoActionPerformed
+        // TODO add your handling code here:
+        FrmGerenciarEmprestimo gerencia = new FrmGerenciarEmprestimo();
+        gerencia.setVisible(true);
+    }//GEN-LAST:event_b_gerenciaremprestimoActionPerformed
+
+    private void b_gerenciaramigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_gerenciaramigosActionPerformed
+        // TODO add your handling code here:
+        FrmGerenciarAmigo gerencia = new FrmGerenciarAmigo();
+        gerencia.setVisible(true);
+    }//GEN-LAST:event_b_gerenciaramigosActionPerformed
+
+    private void b_gerenciarferramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_gerenciarferramentasActionPerformed
+        // TODO add your handling code here:
+        FrmGerenciarFerramenta gerencia = new FrmGerenciarFerramenta();
+        gerencia.setVisible(true);
+    }//GEN-LAST:event_b_gerenciarferramentasActionPerformed
+
+    private void b_relatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_relatorioActionPerformed
+        // TODO add your handling code here:
+        FrmRelatorios gerencia = new FrmRelatorios();
+        gerencia.setVisible(true);
+    }//GEN-LAST:event_b_relatorioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,6 +320,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton b_cadastroFerramenta;
     private javax.swing.JButton b_emprestimo;
     private javax.swing.JButton b_evento;
+    private javax.swing.JButton b_gerenciaramigos;
+    private javax.swing.JButton b_gerenciaremprestimo;
+    private javax.swing.JButton b_gerenciarferramentas;
     private javax.swing.JButton b_relatorio;
     private javax.swing.JButton jBSair;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
