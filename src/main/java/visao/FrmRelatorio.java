@@ -8,12 +8,12 @@ package visao;
  *
  * @author math
  */
-public class FrmRelatorios extends javax.swing.JFrame {
+public class FrmRelatorio extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-    public FrmRelatorios() {
+    public FrmRelatorio() {
         initComponents();
     }
 
@@ -32,9 +32,9 @@ public class FrmRelatorios extends javax.swing.JFrame {
         b_emprestimosAtivos = new javax.swing.JButton();
         b_emprestimosRealizados2 = new javax.swing.JButton();
         b_relatorioCusto = new javax.swing.JButton();
+        b_relatorioGeral = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Relatórios");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(54, 144, 255));
 
@@ -55,25 +55,12 @@ public class FrmRelatorios extends javax.swing.JFrame {
         );
 
         b_emprestimosAtivos.setText("Empréstimos Ativos");
-        b_emprestimosAtivos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_emprestimosAtivosActionPerformed(evt);
-            }
-        });
 
         b_emprestimosRealizados2.setText("Empréstimos Realizados");
-        b_emprestimosRealizados2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_emprestimosRealizados2ActionPerformed(evt);
-            }
-        });
 
         b_relatorioCusto.setText("Relatório de Custos");
-        b_relatorioCusto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_relatorioCustoActionPerformed(evt);
-            }
-        });
+
+        b_relatorioGeral.setText("Relatório Geral");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,16 +68,18 @@ public class FrmRelatorios extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(312, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(b_emprestimosRealizados2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_emprestimosAtivos, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_relatorioCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(190, 190, 190))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(b_emprestimosRealizados2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b_emprestimosAtivos, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b_relatorioCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b_relatorioGeral, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,11 +90,13 @@ public class FrmRelatorios extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(b_emprestimosAtivos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(b_emprestimosRealizados2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(b_relatorioCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(b_relatorioGeral, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -116,35 +107,11 @@ public class FrmRelatorios extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void b_emprestimosAtivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_emprestimosAtivosActionPerformed
-        // TODO add your handling code here:
-        FrmRelatorioEmprestimos objeto = new FrmRelatorioEmprestimos();
-        objeto.setFiltro(1);
-        objeto.carregaTabela();
-        objeto.setVisible(true);
-    }//GEN-LAST:event_b_emprestimosAtivosActionPerformed
-
-    private void b_emprestimosRealizados2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_emprestimosRealizados2ActionPerformed
-        // TODO add your handling code here:
-        FrmRelatorioEmprestimos objeto = new FrmRelatorioEmprestimos();
-        objeto.setFiltro(0);
-        objeto.carregaTabela();
-        objeto.setVisible(true);
-    }//GEN-LAST:event_b_emprestimosRealizados2ActionPerformed
-
-    private void b_relatorioCustoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_relatorioCustoActionPerformed
-        // TODO add your handling code here:
-        FrmRelatorioCusto objeto = new FrmRelatorioCusto();
-        objeto.setVisible(true);
-    }//GEN-LAST:event_b_relatorioCustoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,13 +130,13 @@ public class FrmRelatorios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmRelatorios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmRelatorios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmRelatorios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmRelatorios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRelatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -177,7 +144,7 @@ public class FrmRelatorios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmRelatorios().setVisible(true);
+                new FrmRelatorio().setVisible(true);
             }
         });
     }
@@ -186,6 +153,7 @@ public class FrmRelatorios extends javax.swing.JFrame {
     private javax.swing.JButton b_emprestimosAtivos;
     private javax.swing.JButton b_emprestimosRealizados2;
     private javax.swing.JButton b_relatorioCusto;
+    private javax.swing.JButton b_relatorioGeral;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
