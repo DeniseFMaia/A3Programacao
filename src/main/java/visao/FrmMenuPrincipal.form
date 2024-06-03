@@ -71,29 +71,17 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="b_emprestimo" min="-2" pref="197" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <Component id="b_gerenciaremprestimo" alignment="1" min="-2" pref="197" max="-2" attributes="0"/>
-                              <Component id="b_cadastroAmigo" alignment="1" min="-2" pref="197" max="-2" attributes="0"/>
-                              <Component id="b_gerenciaramigos" alignment="1" min="-2" pref="197" max="-2" attributes="0"/>
-                              <Component id="b_cadastroFerramenta" alignment="1" min="-2" pref="197" max="-2" attributes="0"/>
-                              <Component id="b_gerenciarferramentas" alignment="1" min="-2" pref="197" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                          <Component id="jBSair" min="-2" pref="75" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="b_evento" min="-2" pref="121" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="b_relatorio" min="-2" pref="135" max="-2" attributes="0"/>
-                      </Group>
+                  <EmptySpace pref="88" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="b_emprestimo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="b_gerenciaremprestimo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="b_cadastroAmigo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="b_gerenciaramigos" alignment="0" max="32767" attributes="0"/>
+                      <Component id="b_cadastroFerramenta" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jBSair" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="b_gerenciarferramentas" alignment="0" max="32767" attributes="0"/>
+                      <Component id="b_relatorio" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
@@ -117,14 +105,11 @@
                   <Component id="b_cadastroFerramenta" min="-2" pref="25" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Component id="b_gerenciarferramentas" min="-2" pref="25" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="b_evento" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="b_relatorio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="b_relatorio" min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                   <Component id="jBSair" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -202,14 +187,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_cadastroAmigoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="b_evento">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Eventos"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_eventoActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="b_relatorio">
           <Properties>
             <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
@@ -244,7 +221,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="b_gerenciaremprestimo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Gerenciar Emprestimos"/>
+            <Property name="text" type="java.lang.String" value="Gerenciar Empr&#xe9;stimos"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_gerenciaremprestimoActionPerformed"/>

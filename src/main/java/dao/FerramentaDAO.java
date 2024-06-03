@@ -48,9 +48,7 @@ public class FerramentaDAO {
 
     public static ArrayList<Ferramenta> minhaLista = new ArrayList<>();
 
-    public static ArrayList<Ferramenta> getMinhaListaa() {
-        return minhaLista;
-    }
+
 
     public static ArrayList<Ferramenta> getMinhaLista() {
         minhaLista.clear(); // Limpa nosso ArrayList
