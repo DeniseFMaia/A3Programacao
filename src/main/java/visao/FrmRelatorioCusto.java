@@ -1,6 +1,6 @@
 package visao;
 import java.text.NumberFormat;
-import model.Ferramentas;
+import model.Ferramenta;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -15,11 +15,11 @@ public class FrmRelatorioCusto extends javax.swing.JFrame {
     /**
      * Creates new form FrmGerenciarFerramenta
      */
-    private Ferramentas objetoferramenta;
+    private Ferramenta objetoferramenta;
     
     public FrmRelatorioCusto() {
         initComponents();
-        this.objetoferramenta = new Ferramentas(); // carrega objetoaluno de aluno
+        this.objetoferramenta = new Ferramenta(); // carrega objetoaluno de aluno
         this.carregaTabela();
 
     }
@@ -29,8 +29,8 @@ public class FrmRelatorioCusto extends javax.swing.JFrame {
         modelo.setNumRows(0); //Posiciona na primeira linha da tabela
         int custototal=0;
 //Carrega a lista de objetos aluno
-        ArrayList<Ferramentas> minhalista = objetoferramenta.getMinhaLista();
-        for (Ferramentas a : minhalista) {
+        ArrayList<Ferramenta> minhalista = objetoferramenta.getMinhaLista();
+        for (Ferramenta a : minhalista) {
             custototal += a.getCusto();
             modelo.addRow(new Object[]{
                 a.getId(),

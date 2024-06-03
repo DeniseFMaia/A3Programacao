@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package visao;
-import model.Ferramentas;
+import model.Ferramenta;
 
 import javax.swing.JOptionPane;
 
@@ -16,10 +16,10 @@ public class FrmCadastroFerramentas extends javax.swing.JFrame {
     /**
      * Creates new form FrmCadastroFerramentas
      */
-    private Ferramentas objetoferramenta;
+    private Ferramenta objetoferramenta;
     public FrmCadastroFerramentas() {
         initComponents();
-        this.objetoferramenta = new Ferramentas();
+        this.objetoferramenta = new Ferramenta();
     }
 
     /**

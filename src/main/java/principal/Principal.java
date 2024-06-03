@@ -4,7 +4,7 @@ import java.text.ParseException;
 import javax.swing.JOptionPane;
 import model.Amigo;
 import model.Emprestimo;
-import model.Ferramentas;
+import model.Ferramenta;
 import visao.FrmMenuPrincipal;
 
 public class Principal {
@@ -17,7 +17,7 @@ public class Principal {
 
         
               /*  Amigo amigo = new Amigo();
-                Ferramentas ferramenta = new Ferramentas();
+                Ferramenta ferramenta = new Ferramenta();
                 Emprestimo emprestimo = new Emprestimo();
                 
 		int op = -1;
@@ -26,11 +26,11 @@ public class Principal {
 				"1 - Cadastrar Amigo" +
 				"\n2 - Imprimir Amigos" +
 				"\n3 - Cadastrar Ferramenta" +
-				"\n4 - Imprimir Ferramentas" +
+				"\n4 - Imprimir Ferramenta" +
 				"\n5 - Emprestar Ferramenta" +
 				"\n6 - Devolver Ferramenta" +
-				"\n7 - Relatório de Ferramentas Emprestadas" +
-				"\n8 - Relatório de Ferramentas Devolvidas" +
+				"\n7 - Relatório de Ferramenta Emprestadas" +
+				"\n8 - Relatório de Ferramenta Devolvidas" +
                                         
 				"\n0 - Sair"));
 			switch(op){

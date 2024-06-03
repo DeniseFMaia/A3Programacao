@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Amigo;
 import model.Emprestimo;
-import model.Ferramentas;
+import model.Ferramenta;
 
 /**
  *
@@ -24,14 +24,14 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
      */
     private Emprestimo objetoemprestimo;
     private Amigo objetoamigo;
-    private Ferramentas objetoferramenta;
+    private Ferramenta objetoferramenta;
     private Integer idemprestimo;
     
     public FrmGerenciarEmprestimo() {
         initComponents();
         this.objetoemprestimo = new Emprestimo(); // carrega objetoaluno de aluno
         this.objetoamigo = new Amigo(); // carrega objetoaluno de aluno
-        this.objetoferramenta = new Ferramentas(); // carrega objetoaluno de aluno
+        this.objetoferramenta = new Ferramenta(); // carrega objetoaluno de aluno
         this.carregaTabela();
         jBDevolver.setVisible(false);
     }
@@ -195,7 +195,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         if (row != -1) {
             idemprestimo = Integer.parseInt(this.jTEmprestimos.getValueAt(row, 0).toString());
             String Status = this.jTEmprestimos.getValueAt(row, 6).toString();
-            if (Status == "Emprestado") {
+            if (Status.equals("Emprestado")) {
                 jBDevolver.setVisible(true);
             }
             //String telefone = this.jTEmprestimos.getValueAt(row, 2).toString();

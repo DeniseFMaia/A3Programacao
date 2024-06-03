@@ -18,6 +18,7 @@ public class Emprestimo {
     private Date dataprevdevolucao;
     private Date datadevolucao;
     private String status;
+    private EmprestimoDAO dao;
 
     // Construtor Default
     public Emprestimo() {
@@ -33,6 +34,7 @@ public class Emprestimo {
         this.dataprevdevolucao = dataprevdevolucao;
         this.datadevolucao = datadevolucao;
         this.status = status;
+        this.dao = new EmprestimoDAO();
     }
 
     // Getters 
@@ -65,31 +67,31 @@ public class Emprestimo {
     }
 
     // Setters
-    private void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    private void setIdFerramenta(int idferramenta) {
+    public void setIdFerramenta(int idferramenta) {
         this.idferramenta = idferramenta;
     }
 
-    private void setIdAmigo(int idamigo) {
+    public void setIdAmigo(int idamigo) {
         this.idamigo = idamigo;
     }
 
-    private void setDataEmprestimo(Date emprestimo) {
+    public void setDataEmprestimo(Date emprestimo) {
         this.dataemprestimo = dataemprestimo;
     }
 
-    private void setDataPrevDevolucao(Date dataprevdevolucao) {
+    public void setDataPrevDevolucao(Date dataprevdevolucao) {
         this.dataprevdevolucao = dataprevdevolucao;
     }
 
-    private void setDataDevolucao(Date datadevolucao) {
+    public void setDataDevolucao(Date datadevolucao) {
         this.datadevolucao = datadevolucao;
     }
 
-    private void setStatus(String status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -105,65 +107,25 @@ public class Emprestimo {
         SIMULANDO A ESTRUTURA EM CAMADAS PARA USAR COM BANCOS DE DADOS.
      */
     public ArrayList getMinhaLista() {
-        return EmprestimoDAO.getMinhaLista();
+        return dao.getMinhaLista();
     }
 
     public int maiorID() {
-        return EmprestimoDAO.maiorID();
+        return dao.maiorID();
     }
 
     // Cadastra novo amigo
     public boolean insertEmprestimoBD(int idferramenta, int idamigo, Date dataemprestimo, Date dataprevdevolucao, Date datadevolucao, String status) {
         int id = this.maiorID() + 1;
         Emprestimo objeto = new Emprestimo(id, idferramenta, idamigo, dataemprestimo, dataprevdevolucao, datadevolucao, status);
-        EmprestimoDAO.minhaLista.add(objeto);
+        dao.insertEmprestimoBD(objeto);
+        //EmprestimoDAO.minhaLista.add(objeto);
         return true;
     }
 
-    //
-    public void emprestar(Ferramentas ferramentas, Amigo amigos) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
-        int idferramenta = parseInt(JOptionPane.showInputDialog(ferramentas.paraString() + "\nID Ferramenta:"));
-        // verifica se a ferramenta esta emprestada
-        Boolean emprestado = false;
-        ArrayList<Emprestimo> emprestimos = getMinhaLista();
-        for (int i = 0; i < emprestimos.size(); i++) {
-            Emprestimo emprestimo = emprestimos.get(i);
-            if (emprestimo.getIdFerramenta() == idferramenta && emprestimo.getStatus() == "Emprestado") {
-                emprestado = true;
-                break;
-            }
-        }
-
-        if (emprestado) {
-            JOptionPane.showMessageDialog(null, "Ferramenta já esta emprestada!F");
-        } else {
-            int idamigo = parseInt(JOptionPane.showInputDialog(amigos.paraString() + "\nID Amigo:"));
-            //Date dataemprestimo = sdf.parse(JOptionPane.showInputDialog("Data Emprestimo:"));
-            String dtprv = JOptionPane.showInputDialog("Data Prev. Devolução:");
-            Date dataprevdevolucao = null;
-            if (!dtprv.isEmpty()) {
-                dataprevdevolucao = sdf.parse(dtprv);
-            }
-            Date dataemprestimo = new Date();
-            insertEmprestimoBD(idferramenta, idamigo, dataemprestimo, dataprevdevolucao, null, "Emprestado");
-        }
-    }
-
-    public void devolver() {
-        int idferramenta = parseInt(JOptionPane.showInputDialog("ID Ferramenta a ser Devolvida:"));
-        ArrayList<Emprestimo> emprestimos = getMinhaLista();
-        for (int i = 0; i < emprestimos.size(); i++) {
-            Emprestimo emprestimo = emprestimos.get(i);
-            if (emprestimo.getIdFerramenta() == idferramenta && emprestimo.getStatus() == "Emprestado") {
-                emprestimo.setStatus("Devolvido");
-                emprestimo.setDataDevolucao(new Date());
-                break;
-            }
-        }
-    }
-
     public void devolver(int idFerramenta) {
+        dao.devolverEmprestimoBD(idFerramenta);
+        /*
         int idferramenta = idFerramenta;
         ArrayList<Emprestimo> emprestimos = getMinhaLista();
         for (int i = 0; i < emprestimos.size(); i++) {
@@ -174,10 +136,10 @@ public class Emprestimo {
                 break;
             }
         }
+         */
     }
-    
 
-    public void ferramentasEmprestadas(Ferramentas ferramentas, Amigo amigos) {
+    public void ferramentasEmprestadas(Ferramenta ferramentas, Amigo amigos) {
         String texto = "";
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -192,14 +154,13 @@ public class Emprestimo {
                         + " Em "
                         + sdf.format(emprestimo.getDataEmprestimo())
                         + " Prev. Devolucao "
-                        + sdf.format(emprestimo.getDataPrevDevolucao())
-                ;
+                        + sdf.format(emprestimo.getDataPrevDevolucao());
             }
         }
         JOptionPane.showMessageDialog(null, texto);
     }
 
-    public void ferramentasDevolvidas(Ferramentas ferramentas, Amigo amigos) {
+    public void ferramentasDevolvidas(Ferramenta ferramentas, Amigo amigos) {
         String texto = "";
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 

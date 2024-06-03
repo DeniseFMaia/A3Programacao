@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Amigo;
 import model.Emprestimo;
-import model.Ferramentas;
+import model.Ferramenta;
 
 /**
  *
@@ -24,14 +24,14 @@ public class FrmRelatorioEmprestimos extends javax.swing.JFrame {
      */
     private Emprestimo objetoemprestimo;
     private Amigo objetoamigo;
-    private Ferramentas objetoferramenta;
+    private Ferramenta objetoferramenta;
     private Integer idemprestimo;
     
     public FrmRelatorioEmprestimos() {
         initComponents();
         this.objetoemprestimo = new Emprestimo(); // carrega objetoaluno de aluno
         this.objetoamigo = new Amigo(); // carrega objetoaluno de aluno
-        this.objetoferramenta = new Ferramentas(); // carrega objetoaluno de aluno
+        this.objetoferramenta = new Ferramenta(); // carrega objetoaluno de aluno
         this.carregaTabela();
     }
     

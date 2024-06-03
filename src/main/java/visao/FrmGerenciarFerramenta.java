@@ -1,5 +1,5 @@
 package visao;
-import model.Ferramentas;
+import model.Ferramenta;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -14,11 +14,11 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     /**
      * Creates new form FrmGerenciarFerramenta
      */
-    private Ferramentas objetoferramenta;
+    private Ferramenta objetoferramenta;
     
     public FrmGerenciarFerramenta() {
         initComponents();
-        this.objetoferramenta = new Ferramentas(); // carrega objetoaluno de aluno
+        this.objetoferramenta = new Ferramenta(); // carrega objetoaluno de aluno
         this.carregaTabela();
 
     }
@@ -27,8 +27,8 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) this.jTFerramentas.getModel();
         modelo.setNumRows(0); //Posiciona na primeira linha da tabela
 //Carrega a lista de objetos aluno
-        ArrayList<Ferramentas> minhalista = objetoferramenta.getMinhaLista();
-        for (Ferramentas a : minhalista) {
+        ArrayList<Ferramenta> minhalista = objetoferramenta.getMinhaLista();
+        for (Ferramenta a : minhalista) {
             modelo.addRow(new Object[]{
                 a.getId(),
                 a.getNome(),

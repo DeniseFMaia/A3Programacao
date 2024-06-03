@@ -7,12 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import model.Amigo;
+import model.Ferramenta;
+import model.Ferramenta;
 
 /**
  * Aqui vamos simular a persistência de dados.
  */
-public class AmigoDAO {
+public class FerramentaDAO {
 
     public static Connection getConexao() {
         Connection connection = null; //instância da conexão
@@ -45,23 +46,23 @@ public class AmigoDAO {
         }
     }
 
-    public static ArrayList<Amigo> minhaLista = new ArrayList<>();
+    public static ArrayList<Ferramenta> minhaLista = new ArrayList<>();
 
-    public static ArrayList<Amigo> getMinhaListaa() {
+    public static ArrayList<Ferramenta> getMinhaListaa() {
         return minhaLista;
     }
 
-    public static ArrayList<Amigo> getMinhaLista() {
+    public static ArrayList<Ferramenta> getMinhaLista() {
         minhaLista.clear(); // Limpa nosso ArrayList
         try {
-            Statement stmt = AmigoDAO.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos");
+            Statement stmt = FerramentaDAO.getConexao().createStatement();
+            ResultSet res = stmt.executeQuery("SELECT * FROM tb_ferramentas");
             while (res.next()) {
                 int id = res.getInt("id");
                 String nome = res.getString("nome");
-                String telefone = res.getString("telefone");
-                String email = res.getString("email");
-                Amigo objeto = new Amigo(id, nome, telefone, email);
+                String marca = res.getString("marca");
+                double custo = res.getDouble("custo");
+                Ferramenta objeto = new Ferramenta(id, nome, marca, custo);
                 minhaLista.add(objeto);
             }
             res.close();
@@ -72,16 +73,16 @@ public class AmigoDAO {
         //return minhaLista;
     }
 
-    public Amigo carregaAmigo(int id) {
-        Amigo objeto = new Amigo();
+    public Ferramenta carregaFerramenta(int id) {
+        Ferramenta objeto = new Ferramenta();
         objeto.setId(id);
         try {
             Statement stmt = this.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM tb_amigos WHERE id = " + id);
+            ResultSet res = stmt.executeQuery("SELECT * FROM tb_ferramentas WHERE id = " + id);
             res.next();
             objeto.setNome(res.getString("nome"));
-            objeto.setTelefone(res.getString("telefone"));
-            objeto.setEmail(res.getString("email"));
+            objeto.setMarca(res.getString("marca"));
+            objeto.setCusto(res.getDouble("custo"));
             stmt.close();
         } catch (SQLException erro) {
             System.out.println("Erro:" + erro);
@@ -89,14 +90,14 @@ public class AmigoDAO {
         return objeto;
     }
 
-    public boolean insertAmigoBD(Amigo objeto) {
-        String sql = "INSERT INTO  tb_amigos(id,nome,telefone,email) VALUES(?,?,?,?)";
+    public boolean insertFerramentaBD(Ferramenta objeto) {
+        String sql = "INSERT INTO  tb_ferramentas(id,nome,marca,custo) VALUES(?,?,?,?)";
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
             stmt.setInt(1, objeto.getId());
             stmt.setString(2, objeto.getNome());
-            stmt.setString(3, objeto.getTelefone());
-            stmt.setString(4, objeto.getEmail());
+            stmt.setString(3, objeto.getMarca());
+            stmt.setDouble(4, objeto.getCusto());
             stmt.execute();
             stmt.close();
             return true;
@@ -107,10 +108,10 @@ public class AmigoDAO {
     }
 
     // Deleta um aluno específico pelo seu campo ID
-    public boolean deleteAmigoBD(int id) {
+    public boolean deleteFerramentaBD(int id) {
         try {
             Statement stmt = this.getConexao().createStatement();
-            stmt.executeUpdate("DELETE FROM tb_amigos WHERE id = " + id);
+            stmt.executeUpdate("DELETE FROM tb_ferramentas WHERE id = " + id);
             stmt.close();
         } catch (SQLException erro) {
             System.out.println("Erro:" + erro);
@@ -119,13 +120,13 @@ public class AmigoDAO {
     }
 
     // Edita um aluno específico pelo seu campo ID
-    public boolean updateAmigoBD(Amigo objeto) {
-        String sql = "UPDATE tb_amigos set nome = ? ,telefone = ? ,email = ? WHERE id = ?";
+    public boolean updateFerramentaBD(Ferramenta objeto) {
+        String sql = "UPDATE tb_ferramentas set nome = ? ,marca = ? ,custo = ? WHERE id = ?";
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
             stmt.setString(1, objeto.getNome());
-            stmt.setString(2, objeto.getTelefone());
-            stmt.setString(3, objeto.getEmail());
+            stmt.setString(2, objeto.getMarca());
+            stmt.setDouble(3, objeto.getCusto());
             stmt.setInt(4, objeto.getId());
             stmt.execute();
             stmt.close();
@@ -136,16 +137,16 @@ public class AmigoDAO {
         }
     }
 
-    public static void setMinhaLista(ArrayList<Amigo> MinhaLista) {
-        AmigoDAO.minhaLista = MinhaLista;
+    public static void setMinhaLista(ArrayList<Ferramenta> MinhaLista) {
+        FerramentaDAO.minhaLista = MinhaLista;
     }
 
 
     public static int maiorID() {
         int maiorID = 0;
         try {
-            Statement stmt = AmigoDAO.getConexao().createStatement();
-            ResultSet res = stmt.executeQuery("SELECT MAX(id) id FROM tb_amigos");
+            Statement stmt = FerramentaDAO.getConexao().createStatement();
+            ResultSet res = stmt.executeQuery("SELECT MAX(id) id FROM tb_ferramentas");
             res.next();
             maiorID = res.getInt("id");
             stmt.close();
@@ -153,5 +154,5 @@ public class AmigoDAO {
             System.out.println("Erro:" + ex);
         }
         return maiorID;
-    }    
+    }   
 }

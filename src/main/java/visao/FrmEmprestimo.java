@@ -16,7 +16,7 @@ import model.Emprestimo;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 import model.Amigo;
-import model.Ferramentas;
+import model.Ferramenta;
 
 /**
  *
@@ -30,8 +30,8 @@ public class FrmEmprestimo extends javax.swing.JFrame {
     MaskFormatter mfdata;
     private Amigo objetoamigo;
     private ArrayList<Amigo> ListaAmigos;
-    private Ferramentas objetoferramenta;
-    private ArrayList<Ferramentas> ListaFerramentas;
+    private Ferramenta objetoferramenta;
+    private ArrayList<Ferramenta> ListaFerramentas;
 
     private Emprestimo objetoemprestimo;
 
@@ -43,7 +43,7 @@ public class FrmEmprestimo extends javax.swing.JFrame {
         }
         initComponents();
         this.objetoamigo = new Amigo();
-        this.objetoferramenta = new Ferramentas();
+        this.objetoferramenta = new Ferramenta();
         this.objetoemprestimo = new Emprestimo();
         carregaAmigos();
         carregaFerramentas();
@@ -67,7 +67,7 @@ public class FrmEmprestimo extends javax.swing.JFrame {
         jCFerramenta.removeAllItems();
         jCFerramenta.addItem(null);
         ListaFerramentas = objetoferramenta.getMinhaLista();
-        for (Ferramentas a : ListaFerramentas) {
+        for (Ferramenta a : ListaFerramentas) {
             jCFerramenta.addItem(a.getId() +" - "+a.getNome());
         }
     }
