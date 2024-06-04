@@ -1,10 +1,10 @@
 package visao;
+
 import java.text.NumberFormat;
 import model.Ferramenta;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 
 /**
  *
@@ -16,7 +16,7 @@ public class FrmRelatorioCusto extends javax.swing.JFrame {
      * Creates new form FrmGerenciarFerramenta
      */
     private Ferramenta objetoferramenta;
-    
+
     public FrmRelatorioCusto() {
         initComponents();
         this.objetoferramenta = new Ferramenta(); // carrega objetoaluno de aluno
@@ -27,8 +27,8 @@ public class FrmRelatorioCusto extends javax.swing.JFrame {
     public void carregaTabela() {
         DefaultTableModel modelo = (DefaultTableModel) this.jTFerramentas.getModel();
         modelo.setNumRows(0); //Posiciona na primeira linha da tabela
-        int custototal=0;
-//Carrega a lista de objetos aluno
+        int custototal = 0;
+//Carrega a lista de objetos ferramenta
         ArrayList<Ferramenta> minhalista = objetoferramenta.getMinhaLista();
         for (Ferramenta a : minhalista) {
             custototal += a.getCusto();
@@ -43,8 +43,7 @@ public class FrmRelatorioCusto extends javax.swing.JFrame {
         String moneyString = formatter.format(custototal);
         JTFcustoTotal.setText(moneyString);
         JTFcustoTotal.setEditable(false);
-    } 
-   
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -151,7 +150,6 @@ public class FrmRelatorioCusto extends javax.swing.JFrame {
 
     private void jTFerramentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTFerramentasMouseClicked
 
-
     }//GEN-LAST:event_jTFerramentasMouseClicked
 
     /**
@@ -179,6 +177,8 @@ public class FrmRelatorioCusto extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmRelatorioCusto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

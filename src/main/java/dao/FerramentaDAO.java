@@ -48,8 +48,6 @@ public class FerramentaDAO {
 
     public static ArrayList<Ferramenta> minhaLista = new ArrayList<>();
 
-
-
     public static ArrayList<Ferramenta> getMinhaLista() {
         minhaLista.clear(); // Limpa nosso ArrayList
         try {
@@ -139,7 +137,6 @@ public class FerramentaDAO {
         FerramentaDAO.minhaLista = MinhaLista;
     }
 
-
     public static int maiorID() {
         int maiorID = 0;
         try {
@@ -152,5 +149,5 @@ public class FerramentaDAO {
             System.out.println("Erro:" + ex);
         }
         return maiorID;
-    }   
+    }
 }

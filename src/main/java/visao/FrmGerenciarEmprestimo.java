@@ -26,7 +26,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     private Amigo objetoamigo;
     private Ferramenta objetoferramenta;
     private Integer idemprestimo;
-    
+
     public FrmGerenciarEmprestimo() {
         initComponents();
         this.objetoemprestimo = new Emprestimo(); // carrega objetoaluno de aluno
@@ -35,7 +35,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         this.carregaTabela();
         jBDevolver.setVisible(false);
     }
-    
+
     public void carregaTabela() {
         DefaultTableModel modelo = (DefaultTableModel) this.jTEmprestimos.getModel();
         modelo.setNumRows(0); //Posiciona na primeira linha da tabela
@@ -55,7 +55,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
             if ((filtro == 0)
                     || (filtro == 1 && dtdev == null)
                     || (filtro == 2 && dtdev != null)) {
-                
+
                 modelo.addRow(new Object[]{
                     a.getId(),
                     objetoamigo.getNomeById(a.getIdAmigo()),
@@ -66,7 +66,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                     a.getStatus()
                 });
             }
-            
+
         }
     }
 
@@ -79,14 +79,38 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTEmprestimos = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
         jBDevolver = new javax.swing.JButton();
         jCFiltroExibir = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
         jButtonFiltrar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTEmprestimos = new javax.swing.JTable();
+        JLgerenciamentoemprestimo = new javax.swing.JLabel();
 
         setTitle("Gerenciamento de Emprestimos");
+
+        jPanel1.setBackground(new java.awt.Color(54, 144, 255));
+
+        jBDevolver.setText("Devolver Ferramenta");
+        jBDevolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBDevolverActionPerformed(evt);
+            }
+        });
+
+        jCFiltroExibir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos Emprestimos", "Ferramentas Não Devolvidas", "Ferramentas Devolvidas" }));
+        jCFiltroExibir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCFiltroExibirActionPerformed(evt);
+            }
+        });
+
+        jButtonFiltrar.setText("Filtrar");
+        jButtonFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFiltrarActionPerformed(evt);
+            }
+        });
 
         jTEmprestimos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -131,62 +155,95 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
             jTEmprestimos.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        jBDevolver.setText("Devolver Ferramenta");
-        jBDevolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBDevolverActionPerformed(evt);
-            }
-        });
+        JLgerenciamentoemprestimo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        JLgerenciamentoemprestimo.setText("Gerenciamento de Emprestimos");
 
-        jCFiltroExibir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos Emprestimos", "Ferramentas Não Devolvidas", "Ferramentas Devolvidas" }));
-        jCFiltroExibir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCFiltroExibirActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Exibir:");
-
-        jButtonFiltrar.setText("Filtrar");
-        jButtonFiltrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFiltrarActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jCFiltroExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(JLgerenciamentoemprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(JLgerenciamentoemprestimo)
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCFiltroExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonFiltrar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBDevolver)
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCFiltroExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBDevolver, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCFiltroExibir, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonFiltrar))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jBDevolver)
-                .addContainerGap(162, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDevolverActionPerformed
+        try {
+            // validando dados da interface gráfica.
+            int id = 0;
+            if (this.jTEmprestimos.getSelectedRow() == -1) {
+                throw new Mensagens("Selecione uma ferramenta não devolvida");
+            } else {
+                id = Integer.parseInt(this.jTEmprestimos.
+                        getValueAt(this.jTEmprestimos.getSelectedRow(), 0).
+                        toString());
+            }
+            // retorna 0 -> primeiro botão | 1 -> segundo botão | 2 -> terceiro botão
+            int respostaUsuario = JOptionPane.
+                    showConfirmDialog(null,
+                            "Tem certeza que deseja devolver esta Ferramenta ?");
+            if (respostaUsuario == 0) {// clicou em SIM
+                objetoemprestimo.devolver(this.idemprestimo);
+                carregaTabela();
+                jBDevolver.setVisible(false);
+            }
+
+        } catch (Mensagens erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } finally {
+            // atualiza a tabela.
+            carregaTabela();
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBDevolverActionPerformed
+
+    private void jButtonFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFiltrarActionPerformed
+        // TODO add your handling code here:
+        carregaTabela();
+    }//GEN-LAST:event_jButtonFiltrarActionPerformed
 
     private void jTEmprestimosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTEmprestimosMouseClicked
         // TODO add your handling code here:
@@ -206,45 +263,9 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTEmprestimosMouseClicked
 
-    private void jBDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDevolverActionPerformed
-        try {
-// validando dados da interface gráfica.
-            int id = 0;
-            if (this.jTEmprestimos.getSelectedRow() == -1) {
-                throw new Mensagens("Selecione uma ferramenta não devolvida");
-            } else {
-                id = Integer.parseInt(this.jTEmprestimos.
-                        getValueAt(this.jTEmprestimos.getSelectedRow(), 0).
-                        toString());
-            }
-// retorna 0 -> primeiro botão | 1 -> segundo botão | 2 -> terceiro botão
-            int respostaUsuario = JOptionPane.
-                    showConfirmDialog(null,
-                            "Tem certeza que deseja devolver esta Ferramenta ?");
-            if (respostaUsuario == 0) {// clicou em SIM
-                objetoemprestimo.devolver(this.idemprestimo);
-                carregaTabela();
-                jBDevolver.setVisible(false);
-            }
-
-        } catch (Mensagens erro) {
-            JOptionPane.showMessageDialog(null, erro.getMessage());
-        } finally {
-// atualiza a tabela.
-            carregaTabela();
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBDevolverActionPerformed
-
     private void jCFiltroExibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCFiltroExibirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCFiltroExibirActionPerformed
-
-    private void jButtonFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFiltrarActionPerformed
-        // TODO add your handling code here:
-        carregaTabela();
-    }//GEN-LAST:event_jButtonFiltrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,10 +306,11 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLgerenciamentoemprestimo;
     private javax.swing.JButton jBDevolver;
     private javax.swing.JButton jButtonFiltrar;
     private javax.swing.JComboBox<String> jCFiltroExibir;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTEmprestimos;
     // End of variables declaration//GEN-END:variables

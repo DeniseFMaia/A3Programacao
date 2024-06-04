@@ -1,4 +1,3 @@
-
 package visao;
 
 import javax.swing.JOptionPane;
@@ -13,8 +12,8 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     /**
      * Creates new form FrmCadastroAmigo
      */
-
     private Amigo objetoamigo; // cria o vínculo com o Aluno
+
     public FrmCadastroAmigo() {
         initComponents();
         this.objetoamigo = new Amigo(); // carrega objeto vazio de amigo
@@ -81,13 +80,11 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(61, 61, 61)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel1))
+                    .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +168,7 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         try {
 // recebendo e validando dados da interface gráfica.
             String nome = "";
-           String telefone = "";
+            String telefone = "";
             String email = "";
             if (this.JTFnome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
@@ -197,14 +194,14 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
                 this.JTFtelefone.setText("");
                 this.jTFEmail.setText("");
             }
-            
+
             System.out.println(this.objetoamigo.getMinhaLista().toString());
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
             JOptionPane.showMessageDialog(null, "Informe um número válido.");
         }// TODO add your handling code here:        
-        
+
     }//GEN-LAST:event_b_cadastrarActionPerformed
 
     private void b_gerenciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_gerenciarActionPerformed

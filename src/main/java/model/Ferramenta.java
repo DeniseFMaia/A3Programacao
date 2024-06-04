@@ -105,7 +105,6 @@ public class Ferramenta {
         return true;
     }
 
-
     // carrega dados de uma ferramenta especÍfica pela sua ID
     public Ferramenta carregaFerramentas(int id) {
 

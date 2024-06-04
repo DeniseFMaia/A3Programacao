@@ -59,7 +59,7 @@ public class FrmEmprestimo extends javax.swing.JFrame {
         jCAmigo.addItem(null);
         ListaAmigos = objetoamigo.getMinhaLista();
         for (Amigo a : ListaAmigos) {
-            jCAmigo.addItem(a.getId() +" - "+a.getNome());
+            jCAmigo.addItem(a.getId() + " - " + a.getNome());
         }
     }
 
@@ -68,7 +68,7 @@ public class FrmEmprestimo extends javax.swing.JFrame {
         jCFerramenta.addItem(null);
         ListaFerramentas = objetoferramenta.getMinhaLista();
         for (Ferramenta a : ListaFerramentas) {
-            jCFerramenta.addItem(a.getId() +" - "+a.getNome());
+            jCFerramenta.addItem(a.getId() + " - " + a.getNome());
         }
     }
 
@@ -326,13 +326,12 @@ public class FrmEmprestimo extends javax.swing.JFrame {
                 //this.objetoemprestimo.insertFerramentasBD(nome, ferramenta,dataemprestimo, dataprevdevolucao,datadevolucao,status)){
                 JOptionPane.showMessageDialog(rootPane, "Empréstimo Cadastrado com Sucesso!");
 
-                
                 jCAmigo.setSelectedIndex(-1);
                 jCFerramenta.setSelectedIndex(-1);
-                
+
                 Date date = new Date();
                 JFDataEmprestimo.setValue(sdf.format(date));
-                
+
                 JFDataPrevDevolucao.setValue(null);
 // limpa campos da interface
                 //this.JTFNome.setText("");
@@ -388,7 +387,7 @@ public class FrmEmprestimo extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         FrmGerenciarEmprestimo objeto = new FrmGerenciarEmprestimo();
-        objeto.setVisible(true);        
+        objeto.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

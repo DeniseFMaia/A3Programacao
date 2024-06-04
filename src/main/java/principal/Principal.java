@@ -15,8 +15,7 @@ public class Principal {
 // Torna a janela visível
         objetotela.setVisible(true);
 
-        
-              /*  Amigo amigo = new Amigo();
+        /*  Amigo amigo = new Amigo();
                 Ferramenta ferramenta = new Ferramenta();
                 Emprestimo emprestimo = new Emprestimo();
                 
@@ -60,7 +59,6 @@ public class Principal {
 					break;
 			}				
 		}        
-        */
-        
+         */
     }
 }

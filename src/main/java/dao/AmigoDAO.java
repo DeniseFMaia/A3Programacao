@@ -140,7 +140,6 @@ public class AmigoDAO {
         AmigoDAO.minhaLista = MinhaLista;
     }
 
-
     public static int maiorID() {
         int maiorID = 0;
         try {
@@ -153,5 +152,5 @@ public class AmigoDAO {
             System.out.println("Erro:" + ex);
         }
         return maiorID;
-    }    
+    }
 }

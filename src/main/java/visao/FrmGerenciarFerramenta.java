@@ -1,9 +1,9 @@
 package visao;
+
 import model.Ferramenta;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 
 /**
  *
@@ -15,7 +15,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
      * Creates new form FrmGerenciarFerramenta
      */
     private Ferramenta objetoferramenta;
-    
+
     public FrmGerenciarFerramenta() {
         initComponents();
         this.objetoferramenta = new Ferramenta(); // carrega objetoaluno de aluno
@@ -36,8 +36,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 a.getCusto()
             });
         }
-    } 
-   
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -216,7 +215,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     }//GEN-LAST:event_JTFferramentaActionPerformed
 
     private void b_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_cancelarActionPerformed
-this.dispose();
+        this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_b_cancelarActionPerformed
 
@@ -243,7 +242,7 @@ this.dispose();
                     this.JTFferramenta.setText("");
                     this.JTFmarca.setText("");
                     this.JTFcusto.setText("");
-                   
+
                     JOptionPane.showMessageDialog(rootPane,
                             "Ferramenta Apagada com Sucesso!");
                 }
@@ -321,7 +320,7 @@ this.dispose();
             this.JTFmarca.setText(marca);
             this.JTFcusto.setText(custo);
         }
-                                      
+
     }//GEN-LAST:event_jTFerramentasMouseClicked
 
     /**
@@ -349,6 +348,7 @@ this.dispose();
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrmGerenciarFerramenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

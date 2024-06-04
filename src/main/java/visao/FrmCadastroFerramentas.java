@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package visao;
+
 import model.Ferramenta;
 
 import javax.swing.JOptionPane;
@@ -17,6 +18,7 @@ public class FrmCadastroFerramentas extends javax.swing.JFrame {
      * Creates new form FrmCadastroFerramentas
      */
     private Ferramenta objetoferramenta;
+
     public FrmCadastroFerramentas() {
         initComponents();
         this.objetoferramenta = new Ferramenta();
@@ -185,7 +187,7 @@ public class FrmCadastroFerramentas extends javax.swing.JFrame {
             } else {
                 custo = Double.parseDouble(this.JTFcusto.getText());
             }
-if (this.objetoferramenta.insertFerramentasBD(nome, marca, custo)) {
+            if (this.objetoferramenta.insertFerramentasBD(nome, marca, custo)) {
                 JOptionPane.showMessageDialog(rootPane, "Ferramenta Cadastrada com Sucesso!");
 // limpa campos da interface
                 this.JTFnomeFerramenta.setText("");
@@ -203,7 +205,7 @@ if (this.objetoferramenta.insertFerramentasBD(nome, marca, custo)) {
 
     private void b_gerenciarFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_gerenciarFerramentaActionPerformed
         // TODO add your handling code here:
-         FrmGerenciarFerramenta objeto = new FrmGerenciarFerramenta();
+        FrmGerenciarFerramenta objeto = new FrmGerenciarFerramenta();
         objeto.setVisible(true);
     }//GEN-LAST:event_b_gerenciarFerramentaActionPerformed
 

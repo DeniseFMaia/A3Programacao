@@ -120,7 +120,6 @@ public class Amigo {
 // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-
     public void imprimir() {
         JOptionPane.showMessageDialog(null, paraString());
     }
