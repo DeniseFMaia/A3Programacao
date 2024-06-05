@@ -108,6 +108,7 @@ public class FrmEmprestimo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(54, 144, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(600, 420));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel4.setText("Novo Empréstimo:");
@@ -212,7 +213,7 @@ public class FrmEmprestimo extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jLabel4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,7 +238,7 @@ public class FrmEmprestimo extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLDataPrevDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JFDataPrevDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jBCadastrar))
@@ -248,11 +249,11 @@ public class FrmEmprestimo extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
         );
 
         pack();
@@ -286,24 +287,13 @@ public class FrmEmprestimo extends javax.swing.JFrame {
             if (index == -1) {
                 throw new Mensagens("Selecione uma ferramenta");
             } else {
+                
                 Integer listIndex = index - 1;
                 idferramenta = ListaFerramentas.get(listIndex).getId();
                 // valida se ferramenta já esta emprestada
-                Boolean emprestado = false;
-                ArrayList<Emprestimo> emprestimos = objetoemprestimo.getMinhaLista();
-                for (int i = 0; i < emprestimos.size(); i++) {
-                    Emprestimo emprestimo = emprestimos.get(i);
-                    if (emprestimo.getIdFerramenta() == idferramenta && emprestimo.getStatus() == "Emprestado") {
-                        emprestado = true;
-                        break;
-                    }
-                }
-
-                if (emprestado) {
+                if (!objetoemprestimo.validaFerramentaDisponivel(idferramenta)) {                    
                     throw new Mensagens("Ferramenta não esta disponivel para emprestimo");
-
                 }
-
                 //JOptionPane.showMessageDialog(rootPane, ListaAmigos.get(listIndex).toString());
             }
 
@@ -321,6 +311,12 @@ public class FrmEmprestimo extends javax.swing.JFrame {
                 throw new Mensagens("Informe uma previsão de devolução");
 
             }
+            
+            if (dataprevdevolucao.compareTo(dataemprestimo) < 0 )  {
+                    throw new Mensagens("Data previsão de devolução deve ser maior que data emprestimo");
+            }
+            
+            
 
             if (this.objetoemprestimo.insertEmprestimoBD(idferramenta, idamigo, dataemprestimo, dataprevdevolucao, null, "Emprestado")) {
                 //this.objetoemprestimo.insertFerramentasBD(nome, ferramenta,dataemprestimo, dataprevdevolucao,datadevolucao,status)){

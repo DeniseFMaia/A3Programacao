@@ -195,4 +195,35 @@ public class EmprestimoDAO {
         return maiorID;
     }
 
+    public static Boolean validaFerramentaDisponivel(int id) {
+        Boolean disponivel = true;
+        try {
+            Statement stmt = FerramentaDAO.getConexao().createStatement();
+            ResultSet res = stmt.executeQuery("select count(*) qtd from db_emprestimos.tb_emprestimos where status='Emprestado' and idferramenta=" + id);
+            res.next();
+            int qtd = res.getInt("qtd");
+            stmt.close();
+            if (qtd > 0) {
+                disponivel = false;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro:" + ex);
+        }
+        return disponivel;
+    }
+
+    public static int getQtdFerramentaEmprestadaAmigo(int idamigo) {
+        int quantidade = 0;
+        try {
+            Statement stmt = FerramentaDAO.getConexao().createStatement();
+            ResultSet res = stmt.executeQuery("select count(*) qtd from db_emprestimos.tb_emprestimos where status='Emprestado' and idamigo=" + idamigo);
+            res.next();
+            quantidade = res.getInt("qtd");
+            stmt.close();
+        } catch (SQLException ex) {
+            System.out.println("Erro:" + ex);
+        }
+        return quantidade;
+    }
+
 }

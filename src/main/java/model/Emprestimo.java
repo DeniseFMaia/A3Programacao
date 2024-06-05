@@ -122,7 +122,15 @@ public class Emprestimo {
         //EmprestimoDAO.minhaLista.add(objeto);
         return true;
     }
+    
+    public boolean validaFerramentaDisponivel(int idferramenta) {
+        return dao.validaFerramentaDisponivel(idferramenta);
+    }
 
+    public int getQtdFerramentaEmprestadaAmigo(int idamigo) {
+        return dao.getQtdFerramentaEmprestadaAmigo(idamigo);
+    }
+    
     public void devolver(int idFerramenta) {
         dao.devolverEmprestimoBD(idFerramenta);
         /*
