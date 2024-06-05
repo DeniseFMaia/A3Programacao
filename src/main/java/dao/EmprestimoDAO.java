@@ -140,24 +140,6 @@ public class EmprestimoDAO {
     }
 
 
-    /*public boolean updateEmprestimoBD(Emprestimo objeto) {
-        String sql = "UPDATE tb_emprestimos set datadevolucao= ? ,status = ? WHERE id = ?";
-        try {
-            PreparedStatement stmt = this.getConexao().prepareStatement(sql);
-
-            java.sql.Date sqldate = new java.sql.Date( new Date().getTime());
-            stmt.setDate(1, sqldate);
-            stmt.setString(2, "Devolvido");
-            stmt.setInt(3, objeto.getId());
-            stmt.execute();
-            stmt.close();
-            return true;
-        } catch (SQLException erro) {
-            System.out.println("Erro:" + erro);
-            throw new RuntimeException(erro);
-        }
-    }
-     */
     public boolean devolverEmprestimoBD(int id) {
         String sql = "UPDATE tb_emprestimos set datadevolucao= ? ,status = ? WHERE id = ?";
         try {

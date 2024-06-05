@@ -52,18 +52,21 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                  <Component id="jLabel4" min="-2" pref="245" max="-2" attributes="0"/>
-                  <EmptySpace pref="364" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="b_emprestimosRealizados2" min="-2" pref="194" max="-2" attributes="0"/>
-                      <Component id="b_emprestimosAtivos" min="-2" pref="194" max="-2" attributes="0"/>
-                      <Component id="b_relatorioCusto" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" pref="245" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="b_relatorioCusto" min="-2" pref="194" max="-2" attributes="0"/>
+                              <Component id="b_emprestimos" min="-2" pref="194" max="-2" attributes="0"/>
+                              <Component id="b_relatorioranking" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
+                  <EmptySpace pref="247" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -74,13 +77,13 @@
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="b_emprestimosAtivos" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="b_emprestimosRealizados2" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="b_emprestimos" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="b_relatorioCusto" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace pref="172" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="b_relatorioranking" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace pref="124" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -114,28 +117,28 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JButton" name="b_emprestimosAtivos">
+        <Component class="javax.swing.JButton" name="b_emprestimos">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Empr&#xe9;stimos Ativos"/>
+            <Property name="text" type="java.lang.String" value="Empr&#xe9;stimos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_emprestimosAtivosActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="b_emprestimosRealizados2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Empr&#xe9;stimos Realizados"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_emprestimosRealizados2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_emprestimosActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b_relatorioCusto">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Relat&#xf3;rio de Custos"/>
+            <Property name="text" type="java.lang.String" value="Custos"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_relatorioCustoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="b_relatorioranking">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ranking de Empr&#xe9;stimos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_relatoriorankingActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

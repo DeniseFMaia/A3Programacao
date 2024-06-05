@@ -193,27 +193,30 @@ public class FrmEmprestimo extends javax.swing.JFrame {
                                     .addComponent(JLNome, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JLFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(JLDataEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(45, 45, 45)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(JFDataEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCAmigo, 0, 232, Short.MAX_VALUE)
-                                    .addComponent(jCFerramenta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(78, 78, 78))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(85, 85, 85)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(45, 45, 45)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jCAmigo, 0, 232, Short.MAX_VALUE)
+                                            .addComponent(jCFerramenta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(44, 44, 44)
+                                        .addComponent(JFDataEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(JLDataPrevDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(JFDataPrevDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(119, 119, 119)))))
+                                    .addComponent(JLDataPrevDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JFDataPrevDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(92, 92, 92)
+                                        .addComponent(jBCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jLabel4)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,18 +230,18 @@ public class FrmEmprestimo extends javax.swing.JFrame {
                     .addComponent(JLNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLDataEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JFDataEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLDataPrevDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JFDataPrevDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jBCadastrar))
@@ -287,11 +290,11 @@ public class FrmEmprestimo extends javax.swing.JFrame {
             if (index == -1) {
                 throw new Mensagens("Selecione uma ferramenta");
             } else {
-                
+
                 Integer listIndex = index - 1;
                 idferramenta = ListaFerramentas.get(listIndex).getId();
                 // valida se ferramenta já esta emprestada
-                if (!objetoemprestimo.validaFerramentaDisponivel(idferramenta)) {                    
+                if (!objetoemprestimo.validaFerramentaDisponivel(idferramenta)) {
                     throw new Mensagens("Ferramenta não esta disponivel para emprestimo");
                 }
                 //JOptionPane.showMessageDialog(rootPane, ListaAmigos.get(listIndex).toString());
@@ -311,31 +314,35 @@ public class FrmEmprestimo extends javax.swing.JFrame {
                 throw new Mensagens("Informe uma previsão de devolução");
 
             }
-            
-            if (dataprevdevolucao.compareTo(dataemprestimo) < 0 )  {
-                    throw new Mensagens("Data previsão de devolução deve ser maior que data emprestimo");
+
+            if (dataprevdevolucao.compareTo(dataemprestimo) < 0) {
+                throw new Mensagens("Data previsão de devolução deve ser maior que data emprestimo");
             }
             
+            int qtdferramentasemprestadas = objetoemprestimo.getQtdFerramentaEmprestadaAmigo(idamigo);
             
+            int respostaUsuario = 0;
+            
+            if (qtdferramentasemprestadas > 0) {
+                respostaUsuario = JOptionPane.
+                    showConfirmDialog(null,
+                            "Este Amigo possui "+qtdferramentasemprestadas+ " ferramenta(s) emprestada(s), deseja emprestar mais uma ferramenta ?");
+            }
 
-            if (this.objetoemprestimo.insertEmprestimoBD(idferramenta, idamigo, dataemprestimo, dataprevdevolucao, null, "Emprestado")) {
-                //this.objetoemprestimo.insertFerramentasBD(nome, ferramenta,dataemprestimo, dataprevdevolucao,datadevolucao,status)){
-                JOptionPane.showMessageDialog(rootPane, "Empréstimo Cadastrado com Sucesso!");
+            if (respostaUsuario == 0) {// clicou em SIM
 
-                jCAmigo.setSelectedIndex(-1);
-                jCFerramenta.setSelectedIndex(-1);
+                if (this.objetoemprestimo.insertEmprestimoBD(idferramenta, idamigo, dataemprestimo, dataprevdevolucao, null, "Emprestado")) {
+                    //this.objetoemprestimo.insertFerramentasBD(nome, ferramenta,dataemprestimo, dataprevdevolucao,datadevolucao,status)){
+                    JOptionPane.showMessageDialog(rootPane, "Empréstimo Cadastrado com Sucesso!");
 
-                Date date = new Date();
-                JFDataEmprestimo.setValue(sdf.format(date));
+                    jCAmigo.setSelectedIndex(-1);
+                    jCFerramenta.setSelectedIndex(-1);
 
-                JFDataPrevDevolucao.setValue(null);
-// limpa campos da interface
-                //this.JTFNome.setText("");
-                //this.JTFFerramenta.setText("");
-                //this.JTFDataEmprestimo.setText("");
-                //this.JTFDataPrevDevolucao.setText("");
-                //this.JTFDataDevolucao.setText("");
-                //this.JTFStatus.setText("");
+                    Date date = new Date();
+                    JFDataEmprestimo.setValue(sdf.format(date));
+
+                    JFDataPrevDevolucao.setValue(null);
+                }
             }
 
         } catch (Mensagens erro) {

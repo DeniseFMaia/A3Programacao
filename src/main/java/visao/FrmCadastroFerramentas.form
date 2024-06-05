@@ -29,17 +29,17 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="JTFnomeFerramenta" max="32767" attributes="0"/>
                           <Component id="jLmarca" min="-2" max="-2" attributes="0"/>
                           <Component id="jLnomeFerramenta" min="-2" max="-2" attributes="0"/>
                           <Component id="jLcustoAquisição" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTFcusto" pref="135" max="32767" attributes="0"/>
                           <Component id="JTFmarca" alignment="0" max="32767" attributes="0"/>
-                          <Component id="JTFcusto" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                          <Component id="JTFnomeFerramenta" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="168" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="40" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel3" min="-2" pref="304" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
@@ -71,7 +71,7 @@
               <Component id="jLcustoAquisição" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="JTFcusto" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="73" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="b_gerenciarFerramenta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="b_registrarFerramenta" alignment="3" min="-2" max="-2" attributes="0"/>
