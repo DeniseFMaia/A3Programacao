@@ -26,12 +26,21 @@ public class FrmRelatorios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        b_emprestimos1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         b_emprestimos = new javax.swing.JButton();
         b_relatorioCusto = new javax.swing.JButton();
         b_relatorioranking = new javax.swing.JButton();
+        b_emprestimosAtrasados = new javax.swing.JButton();
+
+        b_emprestimos1.setText("Empréstimos");
+        b_emprestimos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_emprestimos1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatórios");
@@ -76,6 +85,13 @@ public class FrmRelatorios extends javax.swing.JFrame {
             }
         });
 
+        b_emprestimosAtrasados.setText("Empréstimos Atrasados");
+        b_emprestimosAtrasados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_emprestimosAtrasadosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -91,7 +107,8 @@ public class FrmRelatorios extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(b_relatorioCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(b_emprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(b_relatorioranking, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(b_relatorioranking, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b_emprestimosAtrasados, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(247, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -103,9 +120,11 @@ public class FrmRelatorios extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(b_emprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addGap(7, 7, 7)
+                .addComponent(b_emprestimosAtrasados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(b_relatorioCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(56, 56, 56)
                 .addComponent(b_relatorioranking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(124, Short.MAX_VALUE))
         );
@@ -145,6 +164,14 @@ public class FrmRelatorios extends javax.swing.JFrame {
         FrmRelatorioRankingEmprestimo objeto = new FrmRelatorioRankingEmprestimo();
         objeto.setVisible(true);
     }//GEN-LAST:event_b_relatoriorankingActionPerformed
+
+    private void b_emprestimos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_emprestimos1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_emprestimos1ActionPerformed
+
+    private void b_emprestimosAtrasadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_emprestimosAtrasadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b_emprestimosAtrasadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,6 +213,8 @@ public class FrmRelatorios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_emprestimos;
+    private javax.swing.JButton b_emprestimos1;
+    private javax.swing.JButton b_emprestimosAtrasados;
     private javax.swing.JButton b_relatorioCusto;
     private javax.swing.JButton b_relatorioranking;
     private javax.swing.JLabel jLabel4;
