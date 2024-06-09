@@ -56,9 +56,24 @@ public class FrmRelatorioEmprestimos extends javax.swing.JFrame {
                 dtdev = sdf.format(a.getDataDevolucao());
             } catch (Exception e) {
             }
-            if ((filtro == 0)
-                    || (filtro == 1 && dtdev == null)
-                    || (filtro == 2 && dtdev != null)) {
+
+            Date dtprevdev = null;
+            Date diatual = new Date();
+            try {
+                dtprevdev = a.getDataPrevDevolucao();
+            } catch (Exception e) {
+            }
+            
+            String status = a.getStatus();
+            if (diatual.compareTo(dtprevdev) > 0 ) {
+                status = "Atrasado";
+            }
+            
+            if ((filtro == 0) // todos emprestimos
+                    || (filtro == 1 && dtdev == null) // ferramentas não devolvidas
+                    || (filtro == 2 && dtdev != null && status.equals("Devolvido"))  // ferramentas devolvidas
+                    || (filtro == 3 && dtdev == null && diatual.compareTo(dtprevdev) > 0 && status.equals("Atrasado"))
+                    ){
 
                 modelo.addRow(new Object[]{
                     a.getId(),
@@ -67,7 +82,7 @@ public class FrmRelatorioEmprestimos extends javax.swing.JFrame {
                     sdf.format(a.getDataEmprestimo()),
                     sdf.format(a.getDataPrevDevolucao()),
                     dtdev,
-                    a.getStatus()
+                    status
                 });
             }
 
@@ -94,7 +109,7 @@ public class FrmRelatorioEmprestimos extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(54, 144, 255));
 
-        jCFiltroExibir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos Emprestimos", "Ferramentas Não Devolvidas", "Ferramentas Devolvidas" }));
+        jCFiltroExibir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos Emprestimos", "Ferramentas Não Devolvidas", "Ferramentas Devolvidas", "Emprestimos Atrasados" }));
         jCFiltroExibir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCFiltroExibirActionPerformed(evt);

@@ -73,7 +73,6 @@
                               <Component id="b_relatorioCusto" min="-2" pref="194" max="-2" attributes="0"/>
                               <Component id="b_emprestimos" min="-2" pref="194" max="-2" attributes="0"/>
                               <Component id="b_relatorioranking" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
-                              <Component id="b_emprestimosAtrasados" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -90,9 +89,7 @@
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="b_emprestimos" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                  <Component id="b_emprestimosAtrasados" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="b_relatorioCusto" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                   <Component id="b_relatorioranking" min="-2" pref="30" max="-2" attributes="0"/>
@@ -152,14 +149,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_relatoriorankingActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="b_emprestimosAtrasados">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Empr&#xe9;stimos Atrasados"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_emprestimosAtrasadosActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -33,7 +33,6 @@ public class FrmRelatorios extends javax.swing.JFrame {
         b_emprestimos = new javax.swing.JButton();
         b_relatorioCusto = new javax.swing.JButton();
         b_relatorioranking = new javax.swing.JButton();
-        b_emprestimosAtrasados = new javax.swing.JButton();
 
         b_emprestimos1.setText("Empréstimos");
         b_emprestimos1.addActionListener(new java.awt.event.ActionListener() {
@@ -85,13 +84,6 @@ public class FrmRelatorios extends javax.swing.JFrame {
             }
         });
 
-        b_emprestimosAtrasados.setText("Empréstimos Atrasados");
-        b_emprestimosAtrasados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b_emprestimosAtrasadosActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -107,8 +99,7 @@ public class FrmRelatorios extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(b_relatorioCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(b_emprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(b_relatorioranking, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(b_emprestimosAtrasados, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(b_relatorioranking, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(247, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,9 +111,7 @@ public class FrmRelatorios extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(b_emprestimos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(b_emprestimosAtrasados, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(43, 43, 43)
                 .addComponent(b_relatorioCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61)
                 .addComponent(b_relatorioranking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -169,10 +158,6 @@ public class FrmRelatorios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_b_emprestimos1ActionPerformed
 
-    private void b_emprestimosAtrasadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_emprestimosAtrasadosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b_emprestimosAtrasadosActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -214,7 +199,6 @@ public class FrmRelatorios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_emprestimos;
     private javax.swing.JButton b_emprestimos1;
-    private javax.swing.JButton b_emprestimosAtrasados;
     private javax.swing.JButton b_relatorioCusto;
     private javax.swing.JButton b_relatorioranking;
     private javax.swing.JLabel jLabel4;
